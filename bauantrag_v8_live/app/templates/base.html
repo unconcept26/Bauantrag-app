@@ -13,25 +13,31 @@
       <div>
         <div class="brand">Bauantrag <span>OS V8</span></div>
         <div class="subbrand">professionelle Projektakte</div>
+
+        <nav class="nav">
+          <a href="/dashboard" class="nav-link">Dashboard</a>
+          <a href="/projects" class="nav-link">Projekte</a>
+          <a href="/projects/new" class="nav-link">Neues Projekt</a>
+          <a href="/settings" class="nav-link">Einstellungen</a>
+        </nav>
       </div>
-      <nav class="nav">
-        <a href="/dashboard" class="nav-link">Dashboard</a>
-        <a href="/projects" class="nav-link">Projekte</a>
-        <a href="/projects/new" class="nav-link">Neues Projekt</a>
-        <a href="/settings" class="nav-link">Einstellungen</a>
-      </nav>
+
       <div class="sidebar-footer">
         <div class="user-badge">{{ user.username }}</div>
         <a href="/logout" class="button button-secondary button-block">Logout</a>
       </div>
     </aside>
+
     <main class="content">
+  {% endif %}
+
       {% block content %}{% endblock %}
+
+  {% if user %}
     </main>
   </div>
-  {% else %}
-    {% block content %}{% endblock %}
   {% endif %}
+
   <script src="/static/app.js"></script>
 </body>
 </html>
